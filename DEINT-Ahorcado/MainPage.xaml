@@ -7,6 +7,6 @@
         <Image
             Source="img0.jpg"
             HeightRequest="200"
-        HorizontalOptions="Center" />
+            HorizontalOptions="Center" />
     </FlexLayout>
 </ContentPage>
