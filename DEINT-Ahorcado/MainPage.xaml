@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DEINT_Ahorcado.MainPage">
-
-    <FlexLayout>
+             x:Class="DEINT_Ahorcado.MainPage"
+             xmlns:Model ="clr-namespace:DEINT_Ahorcado.Model">
+    <HorizontalStackLayout>
         <Image
+            x:Name="imgAhorcado"
             Source="img0.jpg"
             HeightRequest="200"
             HorizontalOptions="Center" />
-    </FlexLayout>
+
+        <FlexLayout BindableLayout.ItemsSource="{Binding letras}" Wrap="Wrap"               
+                    AlignItems="Center" x:Name="flex">
+
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button Text="{Binding .}" Clicked="Button_Clicked" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </HorizontalStackLayout>
 </ContentPage>
