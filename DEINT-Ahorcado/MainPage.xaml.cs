@@ -35,6 +35,11 @@ public partial class MainPage : ContentPage
 		{
 			contFallos++;
 			imgAhorcado.Source = "img" + contFallos + ".jpg";
+
+			if (contFallos == 6)
+			{
+
+			}
 		}
 
         btn.IsEnabled = false;
