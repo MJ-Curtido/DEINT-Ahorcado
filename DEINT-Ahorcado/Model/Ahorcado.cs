@@ -10,7 +10,7 @@ namespace DEINT_Ahorcado.Model
     {
         Random rnd = new Random();
         public List<String> palabras { get; set; } = new List<String>() { "dam", "estudiar", "programar", "ordenador", "teclado", "raton", "alfombrilla", "monitor" };
-        public int fase { get; set; }
+        public int fase { get; set; } = 0;
         public IEnumerable<Char> letras { get; set; } = new List<Char>() { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
         public Ahorcado()
