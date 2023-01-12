@@ -14,25 +14,8 @@ public partial class MainPage : ContentPage
     public MainPage()
 	{
 		InitializeComponent();
-		ahorcado = new Ahorcado();
-		
-		BindingContext = ahorcado;
 
-        palabraSecreta = ahorcado.getPalabraSecreta();
-
-		palabraGuion = "";
-		for (int i = 0; i < palabraSecreta.Length; i++)
-		{
-			palabraGuion += "_";
-		}
-
-        palabraGuion = String.Join(" ", palabraGuion.ToCharArray());
-
-        lblGuiones.Text = palabraGuion;
-
-        palabraSecretaSeparada =  String.Join(" ", palabraSecreta.ToCharArray());
-
-        contFallos = 0;
+		empezarAJugar();
     }
 
     private void Button_Clicked(object sender, EventArgs e)
@@ -49,6 +32,8 @@ public partial class MainPage : ContentPage
 				juegoTerminado();
 				lblFin.Text = "Has perdido :(";
 				lblGuiones.Text = palabraSecretaSeparada;
+
+				btnReiniciar.IsVisible = true;
 			}
 
             lblNumErrores.Text = "Fallos: " + contFallos;
@@ -61,6 +46,8 @@ public partial class MainPage : ContentPage
 			{
                 juegoTerminado();
                 lblFin.Text = "Has ganado :)";
+
+                btnReiniciar.IsVisible = true;
             }
 		}
 
@@ -108,5 +95,38 @@ public partial class MainPage : ContentPage
 
 		return ganado;
 	}
+
+    private void Button_Clicked_1(object sender, EventArgs e)
+    {
+		empezarAJugar();
+		btnReiniciar.IsVisible = false;
+		imgAhorcado.Source = "img0.jpg";
+    }
+
+	private void empezarAJugar()
+	{
+        ahorcado = new Ahorcado();
+
+        BindingContext = ahorcado;
+
+        palabraSecreta = ahorcado.getPalabraSecreta();
+
+        palabraGuion = "";
+        for (int i = 0; i < palabraSecreta.Length; i++)
+        {
+            palabraGuion += "_";
+        }
+
+        palabraGuion = String.Join(" ", palabraGuion.ToCharArray());
+
+        lblGuiones.Text = palabraGuion;
+
+        palabraSecretaSeparada = String.Join(" ", palabraSecreta.ToCharArray());
+
+        contFallos = 0;
+
+		lblFin.Text = "";
+		lblNumErrores.Text = "";
+    }
 }
 

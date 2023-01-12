@@ -10,6 +10,7 @@
             <Image x:Name="imgAhorcado" Source="img0.jpg" HeightRequest="300" />
             <Label x:Name="lblGuiones" Text="" FontSize="Header" HorizontalOptions="Center"/>
             <Label x:Name="lblFin" Text="" FontSize="Large" HorizontalOptions="Center"/>
+            <Button Text="Volver a jugar" Clicked="Button_Clicked_1" x:Name="btnReiniciar" IsVisible="False" />
 
             <FlexLayout x:Name="flex"
                 BindableLayout.ItemsSource="{Binding letras}"
